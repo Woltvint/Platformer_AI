@@ -5,6 +5,7 @@ class Player
   int idle = 0;
   
   boolean alive = true;
+  color c;
   
   int jumpSpeed = 6;
   int speed = 3;
@@ -17,7 +18,8 @@ class Player
   
   Player(int posx, int posy) 
   {
-    net = new NeuralNet(3,50,5);
+    net = new NeuralNet(3,100,5);
+    c = color(random(0,255),random(0,255),random(0,255));
     x = posx;
     y = posy;
   }

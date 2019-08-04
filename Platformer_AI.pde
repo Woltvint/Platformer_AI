@@ -11,7 +11,7 @@ static int h = 50/phmult;
 
 static int grav = 1;
 
-Player[] players = new Player[25];
+Player[] players = new Player[100];
 
 int[][] envPat = {
   {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}, 
@@ -336,11 +336,12 @@ void simPlayersPH()
 void renderPlayers(float offx) 
 {
   //drawing players
-  fill(128);
-  stroke(128);
+  
 
   for (int i = 0; i < players.length; i++) 
   {
+    fill(players[i].c);
+    stroke(players[i].c);
     for (int x = -((phmult-1)/2); x <= (phmult-1)/2; x++) 
     {
       for (int y = -((phmult-1)/2); y <= (phmult-1)/2; y++) 
@@ -410,7 +411,7 @@ void mutateNets()
     }
     else
     {
-      newPlayers[i].net = ar[(int)random(ar.length-4, ar.length)].net.mutateNet();
+      newPlayers[i].net = ar[(int)random(ar.length-10, ar.length)].net.mutateNet();
     }
   }
   players = newPlayers;

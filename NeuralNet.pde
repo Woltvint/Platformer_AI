@@ -89,7 +89,7 @@ class NeuronLayer
 
 class Neuron 
 {
-  float mutationChance = 50;
+  float mutationChance = 75;
   float mutationRate = 0.25;
 
   float[] w;
