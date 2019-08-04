@@ -1,5 +1,11 @@
 class Player 
 {
+  NeuralNet net;
+  int score = 0;
+  int idle = 0;
+  
+  boolean alive = true;
+  
   int jumpSpeed = 6;
   int speed = 3;
   
@@ -11,6 +17,7 @@ class Player
   
   Player(int posx, int posy) 
   {
+    net = new NeuralNet(3,50,5);
     x = posx;
     y = posy;
   }
@@ -20,13 +27,8 @@ class Player
     ay = -jumpSpeed;
   }
   
-  void move(boolean move, boolean dir) 
+  void move(boolean dir) 
   {
-    if (!move) 
-    {
-      ax = 0;
-      return;
-    }
     if (dir) 
     {
       ax = speed;
